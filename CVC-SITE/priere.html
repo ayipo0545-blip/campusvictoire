@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réseau de Prière - CVC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #002347; --accent: #d4af37; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #f9f9f9; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--primary); }
+        .logo { color: white; font-size: 22px; font-weight: 700; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 15px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 13px; }
+        
+        .form-card { max-width: 500px; margin: 60px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h2 { color: var(--primary); text-align: center; margin-bottom: 10px; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        .btn-submit { width: 100%; padding: 15px; background: #25d366; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-submit:hover { background: #128c7e; }
+        
+        footer { text-align: center; padding: 20px; color: #777; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CVC <span>CAMPUS</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="discipulat.html">Discipulat</a></li>
+            <li><a href="marc.html">MARC</a></li>
+            <li><a href="priere.html" style="color:var(--accent)">Prière</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-card">
+        <h2>REQUÊTE DE PRIÈRE</h2>
+        <p style="text-align: center; color: #666;">Confiez-nous votre sujet, nous prions avec vous.</p>
+        <form id="prayerForm">
+            <input type="text" id="nom" placeholder="Votre Nom et Prénoms" required>
+            <textarea id="sujet" placeholder="Décrivez votre sujet de prière ici..." rows="6" required></textarea>
+            <button type="submit" class="btn-submit">
+                <i class="fab fa-whatsapp"></i> ENVOYER PAR WHATSAPP
+            </button>
+        </form>
+    </div>
+
+    <footer>© 2026 Campus Victoire en Christ</footer>
+
+    <script>
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const numero = "2250708737307"; // Ton numéro configuré
+            const nom = document.getElementById('nom').value;
+            const sujet = document.getElementById('sujet').value;
+            
+            const message = `*NOUVELLE REQUÊTE DE PRIÈRE - CVC*\n\n*Nom:* ${nom}\n*Sujet:* ${sujet}`;
+            const whatsappUrl = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>

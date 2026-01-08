@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>LAMPE TV - La télé qui éclaire le monde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #002347; --accent: #d4af37; --dark: #0a0a0a; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--dark); color: white; }
+        
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--primary); }
+        .logo { color: white; font-size: 22px; font-weight: 700; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 15px; font-size: 13px; text-transform: uppercase; }
+
+        .main-header { padding: 50px 5%; text-align: center; background: linear-gradient(rgba(0,35,71,0.8), rgba(10,10,10,1)); }
+        .main-header h1 { color: var(--accent); font-size: 2.5rem; margin-bottom: 5px; }
+        .main-header p { font-style: italic; color: #ddd; font-size: 1.2rem; letter-spacing: 1px; }
+
+        .prog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            padding: 40px 5%;
+        }
+        
+        .prog-card { 
+            background: #1a1a1a; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .prog-card:hover { border-color: var(--accent); transform: scale(1.02); }
+        
+        .video-box { position: relative; width: 100%; aspect-ratio: 16/9; }
+        .video-box iframe { width: 100%; height: 100%; border: none; }
+
+        .prog-info { padding: 20px; }
+        .type-tag { background: var(--accent); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; text-transform: uppercase; }
+        .prog-info h3 { margin: 15px 0 5px 0; color: var(--accent); }
+        
+        footer { text-align: center; padding: 30px; background: #000; color: #555; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CVC <span>CAMPUS</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="lampe-tv.html" style="color:var(--accent)">Direct</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-header">
+        <h1>LAMPE TV</h1>
+        <p>"La télé qui éclaire le monde"</p>
+    </div>
+
+    <section class="prog-grid">
+        
+        <div class="prog-card">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/zF1R_uVvNto" title="Street Gospel" allowfullscreen></iframe>
+            </div>
+            <div class="prog-info">
+                <span class="type-tag">Émission Spéciale</span>
+                <h3>STREET GOSPEL</h3>
+                <p>L'Évangile dans les rues : Témoignages et louanges en plein air pour impacter la cité.</p>
+            </div>
+        </div>
+
+        <div class="prog-card">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/8-W6f0kHj_k" title="Impulsion Divine" allowfullscreen></iframe>
+            </div>
+            <div class="prog-info">
+                <span class="type-tag">Grande Conférence</span>
+                <h3>IMPULSION DIVINE</h3>
+                <p>Un rendez-vous prophétique pour recevoir une accélération divine dans tous les domaines.</p>
+            </div>
+        </div>
+
+        <div class="prog-card">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/5U2U9P5T_W4" title="Atmosphère de Gloire" allowfullscreen></iframe>
+            </div>
+            <div class="prog-info">
+                <span class="type-tag">Adoration</span>
+                <h3>ATMOSPHÈRE DE GLOIRE</h3>
+                <p>Entrez dans une dimension profonde de l'esprit avec ce programme d'adoration.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>© 2026 CVC - Campus Victoire en Christ | La Lumière des Nations</footer>
+</body>
+</html>

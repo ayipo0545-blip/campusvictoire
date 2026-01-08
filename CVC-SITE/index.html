@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVC - Campus Victoire en Christ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #002347; --accent: #d4af37; --ethos: #00d4ff; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+        /* LOADER */
+        #loader { position: fixed; width: 100%; height: 100vh; background: var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: 0.5s; }
+        .spinner { width: 50px; height: 50px; border: 5px solid rgba(212,175,55,0.2); border-top: 5px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+        .loader-hidden { opacity: 0; pointer-events: none; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* NAVBAR */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--primary); position: sticky; top: 0; z-index: 1000; height: 70px; }
+        .logo { color: white; font-size: 20px; font-weight: 700; text-decoration: none; z-index: 1001; }
+        .logo span { color: var(--accent); }
+        
+        /* Menu Hamburger (Masqué sur PC) */
+        .menu-toggle { display: none; color: white; font-size: 24px; cursor: pointer; z-index: 1001; }
+
+        /* Liens du menu */
+        .nav-links { display: flex; list-style: none; align-items: center; }
+        .nav-links li { margin-left: 15px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 12px; text-transform: uppercase; transition: 0.3s; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .btn-ethos { color: var(--ethos) !important; border: 1.5px solid var(--ethos); padding: 6px 12px; border-radius: 5px; display: flex; align-items: center; gap: 5px; }
+        .btn-inscription { background: var(--accent); color: var(--primary) !important; padding: 8px 18px; border-radius: 5px; font-weight: 700 !important; }
+
+        /* --- RESPONSIVE MOBILE (ANDROID & TABLETTE) --- */
+        @media (max-width: 1024px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none; /* Cache le menu */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 30px 0;
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            }
+            .nav-links.active { display: flex; } /* Affiche le menu quand cliqué */
+            .nav-links li { margin: 15px 0; width: 100%; }
+            .btn-ethos, .btn-inscription { display: inline-flex; justify-content: center; width: 80%; }
+        }
+
+        /* HERO SLIDER */
+        .hero { position: relative; height: 80vh; overflow: hidden; background: #000; }
+        .slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 1s; background-size: cover; background-position: center; color: white; text-align: center; padding: 0 5%; }
+        .slide.active { opacity: 1; }
+        .slide:nth-child(1) { background-image: linear-gradient(rgba(0,35,71,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80'); }
+        .slide:nth-child(2) { background-image: linear-gradient(rgba(0,35,71,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80'); }
+        
+        .hero-content h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.1; }
+        .hero-content p { font-size: 1.1rem; margin-bottom: 30px; color: #ddd; }
+        .btn-main { padding: 15px 35px; background: var(--accent); color: var(--primary); text-decoration: none; border-radius: 50px; font-weight: bold; }
+
+        /* COMPTEURS */
+        .counters { padding: 50px 5%; background: #f9f9f9; }
+        .container-counts { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .counter-box { flex: 1; min-width: 140px; text-align: center; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .counter-box h2 { font-size: 2rem; color: var(--primary); }
+        .counter-box p { font-size: 11px; font-weight: bold; color: #777; text-transform: uppercase; }
+
+        /* ETHOS SECTION */
+        .ethos-section { padding: 50px 5%; text-align: center; background: #002347; color: white; }
+        .btn-visit-ethos { display: inline-block; margin-top: 15px; padding: 12px 25px; background: var(--ethos); color: var(--primary); text-decoration: none; border-radius: 5px; font-weight: bold; }
+
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; z-index: 1000; font-size: 14px; }
+
+        footer { padding: 30px; background: #111; color: #777; text-align: center; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">CVC <span>CAMPUS</span></a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À Propos</a></li>
+            <li><a href="lampe-tv.html">Lampe TV</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="marc.html">MARC</a></li>
+            <li><a href="https://ethosacademies-ci.netlify.app/" target="_blank" class="btn-ethos"><i class="fas fa-graduation-cap"></i> École ETHOS</a></li>
+            <li><a href="inscription.html" class="btn-inscription">S'inscrire</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="slide active">
+            <div class="hero-content">
+                <h1>CAMPUS VICTOIRE EN CHRIST</h1>
+                <p>Bâtir une génération de conquérants par la parole et la puissance.</p>
+                <a href="inscription.html" class="btn-main">S'inscrire</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="hero-content">
+                <h1>LAMPE TV</h1>
+                <p>"La télé qui éclaire le monde"</p>
+                <a href="lampe-tv.html" class="btn-main">Regarder</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="counters">
+        <div class="container-counts">
+            <div class="counter-box"><h2 class="count" data-target="520">0</h2><p>Disciples Formés</p></div>
+            <div class="counter-box"><h2 class="count" data-target="15">0</h2><p>Retraites MARC</p></div>
+            <div class="counter-box"><h2 class="count" data-target="2500">0</h2><p>Actes de Compassion</p></div>
+            <div class="counter-box"><h2 class="count" data-target="24">0</h2><p>Lampe TV (H24)</p></div>
+        </div>
+    </section>
+
+    <section class="ethos-section">
+        <h2 style="color:var(--ethos)">ETHOS ACADEMY</h2>
+        <p>Notre partenaire pour votre formation au leadership.</p>
+        <a href="https://ethosacademies-ci.netlify.app/" target="_blank" class="btn-visit-ethos">Visiter l'École</a>
+    </section>
+
+    <a href="https://wa.me/2250708737307" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 CVC - Campus Victoire en Christ | La télé qui éclaire le monde</p>
+    </footer>
+
+    <script>
+        // Loader
+        window.addEventListener("load", () => {
+            setTimeout(() => document.getElementById("loader").classList.add("loader-hidden"), 500);
+        });
+
+        // GESTION DU MENU MOBILE (Le coeur de votre problème)
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Fermer le menu si on clique sur un lien (pour mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Compteurs animés
+        const counters = document.querySelectorAll('.count');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 50;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 40);
+                } else { counter.innerText = target; }
+            };
+            updateCount();
+        });
+
+        // Slider
+        let index = 0;
+        const slides = document.querySelectorAll('.slide');
+        function rotateSlides() {
+            slides.forEach(s => s.classList.remove('active'));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+            setTimeout(rotateSlides, 5000);
+        }
+        rotateSlides();
+    </script>
+</body>
+</html>

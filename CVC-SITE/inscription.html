@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'inscrire - CVC Campus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #002347; --accent: #d4af37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f4f7f9; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: var(--primary); }
+        .logo { color: white; font-size: 24px; font-weight: 700; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 14px; }
+        .form-container { max-width: 700px; margin: 50px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); text-align: center; margin-bottom: 20px; }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-send { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        .btn-send:hover { background: var(--accent); color: var(--primary); }
+        footer { padding: 30px; background: #111; color: white; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="logo">CVC <span>CAMPUS</span></a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="discipulat.html">Discipulat</a></li>
+            <li><a href="marc.html">MARC</a></li>
+            <li><a href="lampe-tv.html">LAMPE TV</a></li>
+            <li><a href="priere.html">Prière</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h1>Formulaire d'Admission</h1>
+        <form>
+            <input type="text" placeholder="Nom Complet" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Téléphone">
+            <select>
+                <option>Choisir un programme...</option>
+                <option>Discipulat</option>
+                <option>MARC (Retraite)</option>
+                <option>Réseau de Prière</option>
+            </select>
+            <textarea placeholder="Votre message ou motivation..." rows="5"></textarea>
+            <button type="submit" class="btn-send">ENVOYER L'INSCRIPTION</button>
+        </form>
+    </div>
+
+    <footer>&copy; 2024 CVC - Campus Victoire en Christ</footer>
+</body>
+</html>

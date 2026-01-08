@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Galerie - CVC Campus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #002347; --accent: #d4af37; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f4f4f4; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--primary); }
+        .logo { color: white; font-size: 22px; font-weight: 700; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-size: 13px; margin-left: 15px; text-transform: uppercase; }
+        
+        .header { padding: 60px 5%; text-align: center; background: var(--primary); color: white; }
+        .header h1 { color: var(--accent); }
+
+        .gallery-grid { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .gallery-item { height: 280px; overflow: hidden; border-radius: 10px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        footer { text-align: center; padding: 30px; background: #111; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CVC <span>CAMPUS</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À Propos</a></li>
+            <li><a href="galerie.html" style="color:var(--accent)">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>NOS MOMENTS FORTS</h1>
+        <p>Découvrez la jeunesse dynamique du Campus Victoire en Christ.</p>
+    </header>
+
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1974"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2064"></div>
+    </div>
+
+    <footer>© 2026 CVC - Campus Victoire en Christ</footer>
+</body>
+</html>
